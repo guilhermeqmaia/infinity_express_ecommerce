@@ -2,10 +2,10 @@ import 'package:decimal/decimal.dart';
 import 'package:decimal/intl.dart';
 import 'package:e_commerce_app/features/cart/cart_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../shared/template/default_app_bar.dart';
 import '../cart/model/cart_model.dart';
 
 class CheckoutPage extends ConsumerWidget {
@@ -24,40 +24,7 @@ class CheckoutPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final productsInCart = ref.watch(cartProvider.state).state;
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        titleTextStyle: const TextStyle(
-          color: Colors.brown,
-          fontSize: 30,
-          fontFamily: 'Nunito',
-          fontWeight: FontWeight.bold,
-        ),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.brown,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        elevation: 5,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        title: const Text('Checkout'),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.home,
-              color: Colors.brown,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/products');
-            },
-          ),
-        ],
-      ),
+      appBar: const DefaultAppBar(title: 'Checkout',),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(25),
         child: Column(
