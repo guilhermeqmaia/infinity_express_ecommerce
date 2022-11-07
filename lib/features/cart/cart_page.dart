@@ -9,7 +9,6 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       appBar: const DefaultAppBar(title: 'Cart'),
       body: const CartScreen(),
       floatingActionButton: FloatingActionButton.extended(
