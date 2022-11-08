@@ -38,7 +38,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
             color: Colors.brown,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/products');
+            Navigator.pushReplacementNamed(context, '/products');
           },
         ),
       ],
