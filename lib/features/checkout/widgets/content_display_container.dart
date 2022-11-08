@@ -15,6 +15,7 @@ class ContentDisplayContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height / 1.55,
       decoration: const BoxDecoration(
         border: Border.symmetric(
           vertical: BorderSide(
@@ -23,14 +24,12 @@ class ContentDisplayContainer extends StatelessWidget {
           ),
         ),
       ),
-      child: Column(
+      child: ListView(
         children: productsInCart.map((product) {
           return ListTile(
-            title: Flexible(
-              child: Text(
-                product.product.title,
-                style: const TextStyle(fontSize: 20, fontFamily: 'SourceSans'),
-              ),
+            title: Text(
+              product.product.title,
+              style: const TextStyle(fontSize: 20, fontFamily: 'SourceSans'),
             ),
             subtitle: Text(
               "Ammount: ${product.quantity}",
