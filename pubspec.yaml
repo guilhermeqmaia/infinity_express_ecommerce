@@ -16,6 +16,8 @@ dependencies:
   decimal: ^2.3.0
   intl: ^0.17.0
   carousel_slider: ^4.1.1
+  faker: ^2.0.0
+  network_image_mock: ^2.1.1
 
 dev_dependencies:
   flutter_test:
