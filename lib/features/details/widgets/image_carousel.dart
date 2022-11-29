@@ -23,7 +23,7 @@ class ImageCarousel extends StatelessWidget {
       ),
       child: CarouselSlider(
         options: CarouselOptions(
-          height: 300,
+          height: 250,
           autoPlay: false,
         ),
         items: product.images.map(

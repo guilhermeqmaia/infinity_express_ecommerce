@@ -27,6 +27,10 @@ class ContentDisplayContainer extends StatelessWidget {
       child: ListView(
         children: productsInCart.map((product) {
           return ListTile(
+            leading: CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(product.product.thumbnail),
+            ),
             title: Text(
               product.product.title,
               style: const TextStyle(fontSize: 20, fontFamily: 'SourceSans'),

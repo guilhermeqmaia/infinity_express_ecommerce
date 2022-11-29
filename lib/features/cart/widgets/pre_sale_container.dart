@@ -49,7 +49,11 @@ class PreSaleContainer extends StatelessWidget {
               ),
               Text(
                 NumberFormat.simpleCurrency(locale: 'pt_BR').format(
-                    DecimalIntl(preSale.product.price) * preSale.quantity),
+                    (DecimalIntl(preSale.product.price) -
+                            (DecimalIntl(preSale.product.price) /
+                                100 *
+                                preSale.product.discountPercentage)) *
+                        preSale.quantity),
                 style: const TextStyle(
                   color: Colors.brown,
                   fontFamily: 'Nunito',
