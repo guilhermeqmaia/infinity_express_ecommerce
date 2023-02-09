@@ -13,10 +13,18 @@ class PreSaleContainer extends StatelessWidget {
     required this.onRemove,
   }) : super(key: key);
   final CartModel preSale;
-
   final void Function() onIncrease;
   final void Function() onSubtract;
   final void Function() onRemove;
+
+  _getPriceInCart() {
+    return (DecimalIntl(preSale.product.price) -
+            (DecimalIntl(preSale.product.price) /
+                100 *
+                preSale.product.discountPercentage)) *
+        preSale.quantity;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,12 +56,8 @@ class PreSaleContainer extends StatelessWidget {
                 ),
               ),
               Text(
-                NumberFormat.simpleCurrency(locale: 'pt_BR').format(
-                    (DecimalIntl(preSale.product.price) -
-                            (DecimalIntl(preSale.product.price) /
-                                100 *
-                                preSale.product.discountPercentage)) *
-                        preSale.quantity),
+                NumberFormat.simpleCurrency(locale: 'pt_BR')
+                    .format(_getPriceInCart()),
                 style: const TextStyle(
                   color: Colors.brown,
                   fontFamily: 'Nunito',

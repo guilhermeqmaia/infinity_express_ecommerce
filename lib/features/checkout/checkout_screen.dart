@@ -25,9 +25,9 @@ class CheckoutScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productsInCart = ref.watch(cartProvider.state).state;
-    return Padding(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(25),
-      child: ListView(
+      child: Column(
         children: [
           const TopDisplayContainer(),
           ContentDisplayContainer(productsInCart: productsInCart),
