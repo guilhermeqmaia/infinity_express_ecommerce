@@ -27,7 +27,7 @@ class _ProductsPageState extends ConsumerState<ProductsPage> {
     }
   }
 
-  void updatePage(int value) {
+  void updateCategory(int value) {
     setState(() {
       index = value;
     });
@@ -47,34 +47,35 @@ class _ProductsPageState extends ConsumerState<ProductsPage> {
               SizedBox(
                 height: 60,
                 child: ListView(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                    ),
-                    scrollDirection: Axis.horizontal,
-                    children: categories.map(
-                      (item) {
-                        return GestureDetector(
-                          onTap: () {
-                            updatePage(categories
-                                .indexWhere((element) => element == item));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: DefaultTextStyle(
-                              style: TextStyle(
-                                color: categories[index] == item
-                                    ? Colors.brown
-                                    : Colors.black54,
-                                fontSize: 25,
-                                fontFamily: 'Nunito',
-                                fontWeight: FontWeight.w600,
-                              ),
-                              child: Text(item.toUpperCase()),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                  ),
+                  scrollDirection: Axis.horizontal,
+                  children: categories.map(
+                    (item) {
+                      return GestureDetector(
+                        onTap: () {
+                          updateCategory(categories
+                              .indexWhere((element) => element == item));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: DefaultTextStyle(
+                            style: TextStyle(
+                              color: categories[index] == item
+                                  ? Colors.brown
+                                  : Colors.black54,
+                              fontSize: 25,
+                              fontFamily: 'Nunito',
+                              fontWeight: FontWeight.w600,
                             ),
+                            child: Text(item.toUpperCase()),
                           ),
-                        );
-                      },
-                    ).toList()),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
               ),
               Flexible(
                 child: ProductsListView(
@@ -91,7 +92,9 @@ class _ProductsPageState extends ConsumerState<ProductsPage> {
         debugPrint("$e");
         debugPrint("$s");
         return const Scaffold(
-          body: Center(child: Text('Deu erro')),
+          body: Center(
+            child: Text('Deu erro'),
+          ),
         );
       },
       loading: () => const Scaffold(
