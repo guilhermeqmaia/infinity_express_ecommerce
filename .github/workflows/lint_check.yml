@@ -1,7 +1,7 @@
 name: Run lint on pull requests
 on:
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   lint:
