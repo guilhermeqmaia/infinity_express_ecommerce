@@ -3,7 +3,7 @@
 ## Sobre o App
 
 - O app foi criado a propósito de estudo e prática, utilizando algumas libs e arquitetura para desenvolvimento.
-
+- A aplicação se trata de um e-commerce, com boa parte de um fluxo de compra, desde a página com os produtos, até finalizar o carrinho.
 
 ## Libs Utilizadas
 
